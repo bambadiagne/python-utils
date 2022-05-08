@@ -1,6 +1,6 @@
 import os
 print("========================BIENVENUE DANS LE CLASSEUR DE FICHIERS=================================")
-
+from folders_path import *
 files = [file for file in os.listdir() if(not os.path.isdir(file))]
 file_to_jump = os.path.basename(__file__)
 exe_escape_file, exe_extension = os.path.splitext(file_to_jump)
@@ -26,9 +26,12 @@ for file in files:
 
     filename, file_extension = os.path.splitext(file)
     if(file_extension):
-        print("Deplacement du fichier {0} vers Fichiers {1} ".format(
-            file, file_extension[1:]))
-        os.replace(file, "Fichiers {0}/{1} ".format(file_extension[1:], file))
+        file_destination = get_file_type(file_extension[1:].upper())
+        if(file_destination):        
+            print("Deplacement du fichier {0} vers Fichiers {1} ".format(
+            file,file_destination))
+            os.replace(file, "{0}/{1} ".format(file_destination, file))
+  
     else:
         print("Deplacement du fichier {0} vers Fichiers {1} ".format(
             file, file_extension[1:]))
