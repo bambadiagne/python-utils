@@ -26,10 +26,12 @@ for file in files:
 
     filename, file_extension = os.path.splitext(file)
     if(file_extension):
-        file_destination = get_file_type(file_extension[1:])        
-        print("Deplacement du fichier {0} vers Fichiers {1} ".format(
+        file_destination = get_file_type(file_extension[1:].upper())
+        if(file_destination):        
+            print("Deplacement du fichier {0} vers Fichiers {1} ".format(
             file,file_destination))
-        os.replace(file, "Fichiers {0}/{1} ".format(file_destination, file))
+            os.replace(file, "{0}/{1} ".format(file_destination, file))
+  
     else:
         print("Deplacement du fichier {0} vers Fichiers {1} ".format(
             file, file_extension[1:]))

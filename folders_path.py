@@ -2,9 +2,10 @@ from getpass import getuser
 # import locale
 CURRENT_USER=getuser()
 ROOT_DIRECTORY=f"C:\\Users\\{CURRENT_USER}\\"
-ALL_AUDIO_EXTENSION=['AAC', 'AIFF', 'DSD', 'FLAC', 'MP3', 'MQA', 'OGG', 'WAV', 'WMA']
 ALL_VIDEOS_EXTENSION=['WEBM MPG', 'MP2', 'MPEG', 'MPE', 'MPV', 'OGG', 'MP4', 'M4P', 'M4V', 'AVI', 'WMV', 'MOV', 'QT', 'FLV', 'SWF', 'AVCHD']
+ALL_AUDIO_EXTENSION=['AAC', 'AIFF', 'DSD', 'FLAC', 'MP3', 'MQA', 'OGG', 'WAV', 'WMA']
 ALL_IMAGES_EXTENSION=['JPG', 'PNG', 'GIF', 'WEBP', 'TIFF', 'PSD', 'RAW', 'BMP', 'HEIF', 'INDD', 'JPEG']
+DOCUMENTS_PATH=f"{ROOT_DIRECTORY}Documents"
 AUDIO_PATH=f"{ROOT_DIRECTORY}Music"
 IMAGES_PATH=f"{ROOT_DIRECTORY}Pictures"
 VIDEOS_PATH=f"{ROOT_DIRECTORY}Videos"
@@ -19,8 +20,9 @@ VIDEOS_PATH=f"{ROOT_DIRECTORY}Videos"
 
 def get_file_type(file_extension):
     if(file_extension in ALL_AUDIO_EXTENSION):
-        return ALL_AUDIO_EXTENSION      
+        return AUDIO_PATH      
     if(file_extension in ALL_IMAGES_EXTENSION):
-        return ALL_IMAGES_EXTENSION    
+        return IMAGES_PATH    
     if(file_extension in ALL_VIDEOS_EXTENSION):
-        return ALL_VIDEOS_EXTENSION    
+        return VIDEOS_PATH    
+    return  DOCUMENTS_PATH  
